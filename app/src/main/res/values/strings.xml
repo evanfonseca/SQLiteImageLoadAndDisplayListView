@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">SQLiteImageLoadAndDisplayListView</string>
+    <string name="action_settings">Settings</string>
+</resources>
