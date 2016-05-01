@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        Toast.makeText(this,"Aqui",Toast.LENGTH_LONG).show();
+        //Toast.makeText(this,"Aqui",Toast.LENGTH_LONG).show();
 
 
         // Construct the data source
@@ -83,6 +83,8 @@ public class MainActivity extends AppCompatActivity {
                                     int position, long id) {
 
                 MyImage image = (MyImage) listView.getItemAtPosition(position);
+
+
                 Intent intent =
                         new Intent(getBaseContext(), DisplayImage.class);
                 intent.putExtra("IMAGE", (new Gson()).toJson(image));
@@ -99,6 +101,15 @@ public class MainActivity extends AppCompatActivity {
         btnExit.setOnClickListener(new View.OnClickListener() {
             @Override public void onClick(View v) {
                 dialog.dismiss();
+
+                /*
+                Intent intent = getIntent();
+                finish();
+                startActivity(intent);
+                */
+
+                startActivity(new Intent(MainActivity.this, MainActivity.class));
+                finish();
             }
         });
         dialog.findViewById(R.id.btnChoosePath)
@@ -125,6 +136,7 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(Intent.ACTION_PICK,
                 android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         startActivityForResult(intent, RESULT_LOAD_IMAGE);
+
     }
 
     /**
@@ -142,6 +154,8 @@ public class MainActivity extends AppCompatActivity {
             takePictureIntent
                     .putExtra(MediaStore.EXTRA_OUTPUT, mCapturedImageURI);
             startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+
+
         }
     }
 
