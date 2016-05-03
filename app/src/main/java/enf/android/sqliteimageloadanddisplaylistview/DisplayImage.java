@@ -76,6 +76,7 @@ public class DisplayImage extends Activity {
         db.close();
         startActivity(new Intent(this, MainActivity.class));
         finish();
+
     }
 
     @Override protected void onSaveInstanceState(Bundle outState) {
