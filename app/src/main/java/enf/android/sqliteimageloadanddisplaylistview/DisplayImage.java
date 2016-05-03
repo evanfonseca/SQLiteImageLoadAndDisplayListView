@@ -96,6 +96,7 @@ public class DisplayImage extends Activity {
         // Restore state members from saved instance
         if (savedInstanceState.containsKey("jstring")) {
             jstring = savedInstanceState.getString("jstring");
+
         }
     }
 }
